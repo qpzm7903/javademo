@@ -20,7 +20,7 @@ public class WorkerThread extends Thread {
         while (true) {
 
             Request request = channel.takeRequest();
-            request.execute();
+            request.run();
         }
     }
 }
