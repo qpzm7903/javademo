@@ -17,6 +17,7 @@ public class IntBufferDemo {
             intBuffer.put(i);
         }
         showStatus(intBuffer, "after put");
+        // 反转模式
         intBuffer.flip();
         showStatus(intBuffer, "after flip");
         while (intBuffer.position() != intBuffer.limit()) {
