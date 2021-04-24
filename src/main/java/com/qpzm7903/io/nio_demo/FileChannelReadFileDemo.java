@@ -37,7 +37,7 @@ public class FileChannelReadFileDemo {
             buffer.flip();
         }
         String result = stringBuffer.toString();
-        System.out.println(result);
+//        System.out.println(result);
         return result;
 
     }
