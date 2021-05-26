@@ -10,6 +10,7 @@
         <module name="javaDemo" />
         <module name="h2demo" />
         <module name="spring_security_user_jdbc" />
+        <module name="mybatis-h2-demo" />
         <module name="log4jdemo" />
         <module name="slf4jdemo" />
       </profile>
