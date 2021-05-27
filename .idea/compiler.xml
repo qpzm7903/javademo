@@ -7,20 +7,25 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="javaDemo" />
-        <module name="h2demo" />
+        <module name="empty_demo" />
         <module name="spring_security_user_jdbc" />
         <module name="mybatis-h2-demo" />
+        <module name="javaDemo" />
+        <module name="designPattern" />
+        <module name="h2demo" />
+        <module name="javaDemo (1)" />
         <module name="log4jdemo" />
         <module name="slf4jdemo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="javaDemo (1)" target="1.5" />
       <module name="springSecurityDemo" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="empty_demo" options="-parameters" />
       <module name="h2demo" options="-parameters" />
       <module name="springSecurityDemo" options="-parameters" />
       <module name="spring_security_user_jdbc" options="-parameters" />

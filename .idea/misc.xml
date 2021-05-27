@@ -13,6 +13,8 @@
         <option value="$PROJECT_DIR$/h2demo/pom.xml" />
         <option value="$PROJECT_DIR$/springSecurityDemo/pom.xml" />
         <option value="$PROJECT_DIR$/mybatis-h2-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/empty_demo/pom.xml" />
+        <option value="$PROJECT_DIR$/designPattern/pom.xml" />
       </list>
     </option>
   </component>
