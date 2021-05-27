@@ -9,5 +9,8 @@ package com.qpzm7903.mybatis.demo;
 
 public interface BlogMapper {
 
-    Blog selectBlog(Integer id);
+    Blog get(Integer id);
+
+    void save(Blog blog);
+
 }

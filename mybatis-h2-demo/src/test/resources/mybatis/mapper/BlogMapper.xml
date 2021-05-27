@@ -8,4 +8,9 @@
         from Blog
         where id = #{id}
     </select>
+
+    <insert id="save" parameterType="com.qpzm7903.mybatis.demo.Blog">
+        insert into Blog(id, title, content)
+        values (#{id}, #{title}, #{content})
+    </insert>
 </mapper>
