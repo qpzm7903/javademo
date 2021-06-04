@@ -15,5 +15,7 @@
         <module>slf4jdemo</module>
         <module>springSecurityDemo</module>
         <module>javabasicdemo</module>
+        <module>classCloaderDemo</module>
+        <module>mockitodemo</module>
     </modules>
 </project>

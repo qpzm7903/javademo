@@ -8,7 +8,7 @@ public class ClassLoaderTest {
         MyClassLoader myLoader = new MyClassLoader();
         Object object = myLoader.loadClass("com.qpzm7903.jvmdemo.ClassLoaderTest").newInstance();
         System.out.println(object.getClass());
-        System.out.println(object instanceof com.qpzm7903.jvmdemo.ClassLoaderTest);
+        System.out.println(object instanceof ClassLoaderTest);
 
         System.out.println(myLoader.getParent().toString());
         System.out.println(object.getClass().getClassLoader());
