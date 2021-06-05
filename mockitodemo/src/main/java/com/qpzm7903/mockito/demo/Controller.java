@@ -13,16 +13,16 @@ import java.util.List;
 public class Controller {
     private final BlogService blogService;
     private final CommentService commentService;
-    private final UserSservice userSservice;
+    private final UserService userService;
 
-    public Controller(BlogService blogService, CommentService commentService, UserSservice userSservice) {
+    public Controller(BlogService blogService, CommentService commentService, UserService userService) {
         this.blogService = blogService;
         this.commentService = commentService;
-        this.userSservice = userSservice;
+        this.userService = userService;
     }
 
     public Blog createBlog(Blog blog, User user) {
-        boolean exist = userSservice.checkUserExist(user);
+        boolean exist = userService.checkUserExist(user);
         if (!exist) {
             return null;
         }
@@ -32,7 +32,7 @@ public class Controller {
     }
 
     public List<Blog> getUserAllBLog(User user) {
-        boolean exist = userSservice.checkUserExist(user);
+        boolean exist = userService.checkUserExist(user);
         if (!exist) {
             return new ArrayList<>();
         }
@@ -41,7 +41,7 @@ public class Controller {
     }
 
     public Blog comment(Blog blog, User user, Comment comment) {
-        boolean exist = userSservice.checkUserExist(user);
+        boolean exist = userService.checkUserExist(user);
         if (!exist) {
             return null;
         }

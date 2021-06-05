@@ -2,7 +2,7 @@ package com.qpzm7903.mockito.demo;
 
 import java.util.List;
 
-public interface UserSservice {
+public interface UserService {
     User getUserById(Long id);
 
     User createUser(User user);
