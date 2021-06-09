@@ -18,5 +18,7 @@
         <module>classCloaderDemo</module>
         <module>mockitodemo</module>
         <module>iocdemo</module>
+        <module>TestModel</module>
+        <module>annotation</module>
     </modules>
 </project>
