@@ -17,5 +17,6 @@
         <module>javabasicdemo</module>
         <module>classCloaderDemo</module>
         <module>mockitodemo</module>
+        <module>iocdemo</module>
     </modules>
 </project>
