@@ -24,6 +24,7 @@ public class App {
         String pkgPath = AnnotationScannerUtils.getPkgPath(pkgName);
         log.info(String.format("pkgPath is {%s}", pkgName));
 
+
         Map<Class<? extends Annotation>, Set<Class<?>>> classesMap = AnnotationScannerUtils.scanClassesByAnnotations(pkgName, pkgPath, true,
                 Collections.singletonList(Component.class));
         if (classesMap.size() == 0) {
