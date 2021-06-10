@@ -39,11 +39,6 @@
             <artifactId>annotation</artifactId>
             <version>1</version>
         </dependency>
-        <dependency>
-            <groupId>com.qpzm7903</groupId>
-            <artifactId>TestModel</artifactId>
-            <version>1</version>
-        </dependency>
     </dependencies>
 
     <properties>
