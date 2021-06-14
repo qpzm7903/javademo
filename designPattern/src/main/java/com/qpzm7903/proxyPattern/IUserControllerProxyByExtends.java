@@ -1,6 +1,8 @@
 package com.qpzm7903.proxyPattern;
 
 /**
+ * 通过继承的方式代理
+ *
  * @author qpzm7903
  * @since 2020-06-11-21:51
  */

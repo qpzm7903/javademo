@@ -5,12 +5,14 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
 /**
+ * 动态代理
+ *
  * @author qpzm7903
  * @since 2020-06-12-6:33
  */
 
 public class IUserControllerDynamicProxy {
-    public Object createProxy(Object proxyObject){
+    public Object createProxy(Object proxyObject) {
         Class<?>[] interfaces = proxyObject.getClass().getInterfaces();
         DynamicProxyHandler handler = new DynamicProxyHandler(proxyObject);
         return Proxy.newProxyInstance(proxyObject.getClass().getClassLoader(), interfaces, handler);
