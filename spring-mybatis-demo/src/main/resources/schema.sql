@@ -4,3 +4,5 @@ CREATE TABLE IF NOT EXISTS `ARTICLES`
     `title`  VARCHAR(100) NOT NULL,
     `author` VARCHAR(100) NOT NULL
 );
+
+create unique index if not exists `uk_title` on `ARTICLES` (`title`);
