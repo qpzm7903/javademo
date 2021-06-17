@@ -12,3 +12,4 @@
 
 [spring 如何扫描类](https://stackoverflow.com/questions/42884371/how-spring-scan-all-the-classes-under-specified-package-with-contextcomponent)
 
+org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider.scanCandidateComponents
