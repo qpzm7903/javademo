@@ -2,10 +2,7 @@ package com.qpzm7903.java8demo;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -63,6 +60,22 @@ public class StreamDemo {
         public Student(String name, int sex) {
             this.name = name;
             this.sex = sex;
+        }
+    }
+
+    @Test
+    void test_compare() {
+        Map<String, String> map = new HashMap<>();
+        map.put("b", "1");
+        map.put("a", "2");
+        map.put("a1", "3");
+        List<Map.Entry<String, String>> collect = map.entrySet().stream()
+                .sorted(Comparator.comparing((Map.Entry<String, String> entry) -> entry.getKey())
+                        .thenComparing((Map.Entry<String, String> entry) -> entry.getValue()))
+                .collect(Collectors.toList());
+
+        for (Map.Entry<String, String> entry : collect) {
+            System.out.println(entry.getKey() + " " + entry.getValue());
         }
     }
 }
