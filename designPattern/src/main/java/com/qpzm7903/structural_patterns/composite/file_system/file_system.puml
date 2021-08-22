@@ -1,0 +1,29 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+
+abstract Class FileSystemNode{
+    {abstract} int countNumOfFiles();
+
+    {abstract} long countSizeOfFiles();}
+
+}
+class File
+class Directory{
+    List<File> files;
+}
+
+
+Directory --|> FileSystemNode
+File --|> FileSystemNode
+
+note as n
+将对象组合成树形结构以表示“部分-整体”的层次结构，
+使得用户对单个对象和组合对象的使用具有一致性。
+end note
+
+
+
+
+@enduml

@@ -1,0 +1,42 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+note as a1
+将数据结构与行为分离开
+
+end note
+abstract ResourceFile{
+    {abstract} public void accept(Visitor visitor);
+}
+
+interface Visitor {
+    void visit(PptFile pptFile);
+    void visit(WordFile wordFile);
+    void visit(PdfFile pdfFile);
+}
+
+class Compressor
+
+class Extractor
+
+class PdfFile
+
+class PptFile
+
+class WorldFile
+
+Extractor --|> Visitor
+
+Compressor --|> Visitor
+
+PdfFile --|> ResourceFile
+PptFile --|> ResourceFile
+WorldFile --|> ResourceFile
+
+
+
+
+
+
+@enduml
