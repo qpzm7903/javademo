@@ -20,5 +20,7 @@
         <module>iocdemo</module>
         <module>TestModel</module>
         <module>annotation</module>
+        <module>junit5demo</module>
+        <module>validationdemo</module>
     </modules>
 </project>
