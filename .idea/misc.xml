@@ -8,6 +8,7 @@
         <option value="$PROJECT_DIR$/spring-mybatis-demo/pom.xml" />
         <option value="$PROJECT_DIR$/spring-security-oauth-demo/pom.xml" />
         <option value="$PROJECT_DIR$/junit5demo/pom.xml" />
+        <option value="$PROJECT_DIR$/spring_test_demo/pom.xml" />
       </list>
     </option>
   </component>
