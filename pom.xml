@@ -22,5 +22,6 @@
         <module>annotation</module>
         <module>junit5demo</module>
         <module>validationdemo</module>
+        <module>test</module>
     </modules>
 </project>
