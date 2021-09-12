@@ -16,3 +16,6 @@ javac -cp "$JAVA_HOME/lib/tools.jar" src/com/qpzm/anno/*  -d ./out
 javac -cp ./out  -d out -processor com.qpzm.anno.DataAnnotationProcessor src/com/qpzm/test/User.java
 java -cp ./out com.qpzm.test.User
 ```
+
+
+idea打开可能会提示没有tools相关得包，可以手动将tools包引入
