@@ -14,7 +14,7 @@
         <module>log4jdemo</module>
         <module>slf4jdemo</module>
         <module>springSecurityDemo</module>
-        <module>javabasicdemo</module>
+
         <module>classCloaderDemo</module>
         <module>mockitodemo</module>
         <module>iocdemo</module>
@@ -23,5 +23,6 @@
         <module>junit5demo</module>
         <module>validationdemo</module>
         <module>test</module>
+        <module>agent_with_javassist</module>
     </modules>
 </project>
