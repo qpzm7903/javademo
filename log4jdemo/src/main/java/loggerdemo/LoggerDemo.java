@@ -19,5 +19,9 @@ public class LoggerDemo {
         log4j.warn("warn log from log4j");
         log4j.trace("trace log from log4j");
         log4j.fatal("fatal log from log4j");
+
+        MessageA.test();
+        MessageB.test();
+
     }
 }

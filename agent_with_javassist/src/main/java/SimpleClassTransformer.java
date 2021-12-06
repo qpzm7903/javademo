@@ -1,4 +1,8 @@
-import javassist.*;
+import javassist.CannotCompileException;
+import javassist.ClassPool;
+import javassist.CtClass;
+import javassist.CtConstructor;
+import javassist.NotFoundException;
 
 import java.io.IOException;
 import java.lang.instrument.ClassFileTransformer;
