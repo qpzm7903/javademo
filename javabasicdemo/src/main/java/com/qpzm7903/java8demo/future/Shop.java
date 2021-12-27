@@ -11,11 +11,17 @@ import java.util.concurrent.Future;
  * @since 2021-12-27-19:55
  */
 public class Shop {
+    private String name;
+
+    public Shop(String name) {
+        this.name = name;
+    }
+
     public Future<Double> getPrice(String product) {
         return CompletableFuture.supplyAsync(()->calculatePrice(product));
     }
 
-    private double calculatePrice(String product) {
+    public double calculatePrice(String product) {
         delay();
         return new Random().nextDouble() * product.charAt(0) + product.charAt(1);
     }
@@ -27,5 +33,9 @@ public class Shop {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    public String getName() {
+        return name;
     }
 }
