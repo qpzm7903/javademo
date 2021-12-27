@@ -132,6 +132,22 @@ class ShopTest {
 
     }
 
+    /**
+     * cost 1009 ms
+     * 110.7313529087261
+     */
+    @Test
+    void test_with_combine() {
+        Shop shop = new Shop("test");
+        Double testProduct = timer(() -> {
+
+            return CompletableFuture.supplyAsync(() -> shop.calculatePrice("testProduct"))
+                    .thenCombine(CompletableFuture.supplyAsync(() -> ExchangeService.getRate(Money.EUR, Money.USD)),
+                            (price, rate) -> price * rate).join();
+        });
+        System.out.println(testProduct);
+    }
+
     public <T> T timer(Supplier<T> supplier) {
         long start = System.currentTimeMillis();
         T t = supplier.get();
