@@ -12,17 +12,7 @@ import java.util.concurrent.Future;
  */
 public class Shop {
     public Future<Double> getPrice(String product) {
-        CompletableFuture<Double> completableFuture = new CompletableFuture<>();
-        new Thread(() -> {
-            try {
-                double price = calculatePrice(product);
-                completableFuture.complete(price);
-            } catch (Exception e) {
-                completableFuture.completeExceptionally(e);
-            }
-        }).start();
-
-        return completableFuture;
+        return CompletableFuture.supplyAsync(()->calculatePrice(product));
     }
 
     private double calculatePrice(String product) {
