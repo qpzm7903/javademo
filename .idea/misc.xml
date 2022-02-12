@@ -10,6 +10,19 @@
         <option value="$PROJECT_DIR$/junit5demo/pom.xml" />
         <option value="$PROJECT_DIR$/spring_test_demo/pom.xml" />
         <option value="$PROJECT_DIR$/javabasicdemo/pom.xml" />
+        <option value="$PROJECT_DIR$/annotation/pom.xml" />
+        <option value="$PROJECT_DIR$/classCloaderDemo/pom.xml" />
+        <option value="$PROJECT_DIR$/designPattern/pom.xml" />
+        <option value="$PROJECT_DIR$/empty_demo/pom.xml" />
+        <option value="$PROJECT_DIR$/h2demo/pom.xml" />
+        <option value="$PROJECT_DIR$/log4jdemo/pom.xml" />
+        <option value="$PROJECT_DIR$/mockitodemo/pom.xml" />
+        <option value="$PROJECT_DIR$/mybatis-h2-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/slf4jdemo/pom.xml" />
+        <option value="$PROJECT_DIR$/springSecurityDemo/pom.xml" />
+        <option value="$PROJECT_DIR$/test/pom.xml" />
+        <option value="$PROJECT_DIR$/TestModel/pom.xml" />
+        <option value="$PROJECT_DIR$/validationdemo/pom.xml" />
       </list>
     </option>
   </component>

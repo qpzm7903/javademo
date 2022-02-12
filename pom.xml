@@ -7,22 +7,5 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>designPattern</module>
-        <module>empty_demo</module>
-        <module>h2demo</module>
-        <module>mybatis-h2-demo</module>
-        <module>log4jdemo</module>
-        <module>slf4jdemo</module>
-        <module>springSecurityDemo</module>
-
-        <module>classCloaderDemo</module>
-        <module>mockitodemo</module>
-        <module>iocdemo</module>
-        <module>TestModel</module>
-        <module>annotation</module>
-        <module>junit5demo</module>
-        <module>validationdemo</module>
-        <module>test</module>
-        <module>agent_with_javassist</module>
     </modules>
 </project>
