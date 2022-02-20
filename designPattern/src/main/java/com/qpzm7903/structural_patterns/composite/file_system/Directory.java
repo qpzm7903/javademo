@@ -11,7 +11,7 @@ import java.util.List;
  */
 
 public class Directory extends FileSystemNode {
-    private List<FileSystemNode> subNodes = new ArrayList<>();
+    private final List<FileSystemNode> subNodes = new ArrayList<>();
 
     public Directory(String path) {
         super(path);

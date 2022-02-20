@@ -23,6 +23,7 @@
         <option value="$PROJECT_DIR$/test/pom.xml" />
         <option value="$PROJECT_DIR$/TestModel/pom.xml" />
         <option value="$PROJECT_DIR$/validationdemo/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-reactive-demo/pom.xml" />
       </list>
     </option>
   </component>
