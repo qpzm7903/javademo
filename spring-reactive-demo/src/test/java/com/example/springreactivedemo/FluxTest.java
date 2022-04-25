@@ -10,10 +10,10 @@ import reactor.core.scheduler.Scheduler;
 import reactor.core.scheduler.Schedulers;
 
 import java.time.Duration;
-import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.concurrent.Callable;
+import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.BiFunction;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -217,5 +217,72 @@ public class FluxTest {
         new Thread(() -> flux.subscribe(x -> System.out.println(x + " " + Thread.currentThread().getName()))).start();
 
         Thread.sleep(100);
+    }
+
+    @Test
+    void test_parallel() {
+        Flux.range(1, 10)
+                .parallel(2)
+                .subscribe(i -> System.out.println(Thread.currentThread().getName() + " -> " + i));
+    }
+
+    @Test
+    void test_parallel_and_run_on() {
+        Flux.range(1, 10)
+                .parallel(2)
+                .runOn(Schedulers.parallel())
+                .subscribe(i -> System.out.println(Thread.currentThread().getName() + " -> " + i));
+    }
+
+    @Test
+    void test_parallel_and_run_and_with_1000() throws InterruptedException {
+        ExecutorService executorService = new ThreadPoolExecutor(50, 100, 0L, TimeUnit.MILLISECONDS,
+                new SynchronousQueue());
+
+        AtomicInteger integer = new AtomicInteger();
+        long start = System.currentTimeMillis();
+        int size = 100000;
+        Flux.range(1, size)
+
+                .parallel(100)
+                .runOn(Schedulers.fromExecutorService(executorService))
+                .doOnNext(i -> {
+                    System.out.println(" i + i = " + (i+i));
+                    integer.incrementAndGet();
+//                    try {
+////                        Thread.sleep(1);
+//                    } catch (InterruptedException e) {
+//                        e.printStackTrace();
+//                    }
+                })
+                .then()
+                .block();
+        long end = System.currentTimeMillis();
+        System.out.println("cost " + (end - start) + " ms");
+
+        assert integer.get() == size;
+
+        System.out.println("end");
+    }
+
+    @Test
+    void test_parallel_and_run_and_with_collect() throws InterruptedException {
+        ExecutorService executorService = new ThreadPoolExecutor(50, 100, 0L, TimeUnit.MILLISECONDS,
+                new SynchronousQueue());
+
+        AtomicInteger integer = new AtomicInteger();
+        long start = System.currentTimeMillis();
+        int size = 100000;
+        Flux.range(1, size)
+                .parallel(100)
+                .runOn(Schedulers.fromExecutorService(executorService))
+                .map(i -> i + 1);
+//                .collect(Collectors.toList());
+        long end = System.currentTimeMillis();
+        System.out.println("cost " + (end - start) + " ms");
+
+        assert integer.get() == size;
+
+        System.out.println("end");
     }
 }
