@@ -1,4 +1,4 @@
-package com.example.iodemo.channel;
+package com.qpzm7903.io.nio_demo.channel;
 
 import java.io.IOException;
 import java.io.RandomAccessFile;
