@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.*;
+import java.text.MessageFormat;
 import java.util.Iterator;
 
 /**
@@ -43,7 +44,7 @@ public class SocketServer {
                     while ((length = channel.read(buffer)) > 0) {
                         // change to read mode
                         buffer.flip();
-                        System.out.println(new String(buffer.array(), 0, length));
+                        extracted(new String(buffer.array(), 0, length));
                         // change to write mode
                         buffer.clear();
                     }
@@ -54,5 +55,9 @@ public class SocketServer {
 
             }
         }
+    }
+
+    private static void extracted(String message) {
+        System.out.println(MessageFormat.format("{0} from thread {1}", message, Thread.currentThread().getName()));
     }
 }
