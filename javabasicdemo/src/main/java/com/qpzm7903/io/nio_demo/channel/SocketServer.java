@@ -50,7 +50,7 @@ public class SocketServer {
                     }
                     channel.close();
                 }
-                // why?
+                // when process complete , should remove it
                 iterator.remove();
 
             }
