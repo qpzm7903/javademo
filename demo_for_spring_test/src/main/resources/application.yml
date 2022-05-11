@@ -1,0 +1,12 @@
+application: yml
+value: yml
+
+my:
+  service:
+    enable: true
+    security:
+      username: test
+      password: admin
+      roles:
+        - USER
+        - ADMIN
