@@ -25,10 +25,12 @@
         <option value="$PROJECT_DIR$/validationdemo/pom.xml" />
         <option value="$PROJECT_DIR$/spring-reactive-demo/pom.xml" />
         <option value="$PROJECT_DIR$/iodemo/iodemo/pom.xml" />
+        <option value="$PROJECT_DIR$/flyway-h2-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/demo_for_spring_test/pom.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="17" project-jdk-type="JavaSDK" />
   <component name="SwUserDefinedSpecifications">
     <option name="specTypeByUrl">
       <map />
