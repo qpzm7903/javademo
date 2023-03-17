@@ -1,6 +1,10 @@
 # 参考
-官网https://commons.apache.org/proper/commons-ognl/language-guide.html
+官网
 
+- https://commons.apache.org/proper/commons-ognl/language-guide.html
+
+博客
+- https://juejin.cn/post/6844904013859651597
 # 错误
 
 ## MemberAccess implementation must be provided
