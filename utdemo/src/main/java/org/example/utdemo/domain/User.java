@@ -1,13 +1,7 @@
 package org.example.utdemo.domain;
 
-public class User {
-    String id;
-    String name;
-
-    public String getName() {
-        return name;
-    }
-
+public class User extends BasicBusinessObject {
+    
     @Override
     public String toString() {
         return "User{" +

@@ -21,15 +21,18 @@ class ApplicationServiceImplTest {
     
     @MockBean
     UserService userService;
-
-    @Autowired
-    private UserListener testListener;
     
     @Test
     void testGetUsers() {
-        List<User> testId = applicationService.listAllUsersOfApp("testId");
+        User e1 = new User();
+        e1.setName("test");
         Mockito.when(userService.getUserById(Mockito.anyString()))
-                .thenReturn(List.of(new User()));
+                .thenReturn(List.of(e1));
+        List<User> testId = applicationService.listAllUsersOfApp("testId");
         Assertions.assertFalse(testId.isEmpty());
+        Assertions.assertEquals(testId.size(), 1);
+        Assertions.assertEquals(testId.get(0)
+                .getName(), "test");
+        
     }
 }

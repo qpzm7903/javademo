@@ -6,11 +6,7 @@ import java.util.concurrent.ExecutorService;
 
 public interface GenericEventListener<T> {
     void handleEvent(GenericEvent<T> event);
-    
     boolean supportsEventType(Class<?> eventType);
-    
     boolean isAsync();
     ExecutorService getThreadPool();
-    
-    
 }

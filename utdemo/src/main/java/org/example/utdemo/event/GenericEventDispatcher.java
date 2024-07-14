@@ -19,6 +19,10 @@ public class GenericEventDispatcher {
     private final Map<Class<?>, List<GenericEventListener<?>>> listeners = new HashMap<>();
     private final ExecutorService defaultThreadPool = Executors.newCachedThreadPool();
     
+    public GenericEventDispatcher(List<GenericEventListener<?>> registeredListeners) {
+        registeredListeners.forEach(this::registerListener);
+    }
+    
     public <T> void registerListener(GenericEventListener<T> listener) {
         List<Class<?>> eventTypes = getEventTypes(listener);
         for (Class<?> eventType : eventTypes) {

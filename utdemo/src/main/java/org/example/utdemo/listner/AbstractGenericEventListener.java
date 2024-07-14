@@ -1,20 +1,8 @@
 package org.example.utdemo.listner;
 
-import jakarta.annotation.PostConstruct;
-import org.example.utdemo.event.GenericEventDispatcher;
-import org.springframework.beans.factory.annotation.Autowired;
-
 import java.util.concurrent.ExecutorService;
 
 public abstract class AbstractGenericEventListener<T> implements GenericEventListener<T> {
-    @Autowired
-    private GenericEventDispatcher dispatcher;
-    
-    @PostConstruct
-    public void init() {
-        dispatcher.registerListener(this);
-    }
-    
     @Override
     public boolean isAsync() {
         return false; // 默认同步处理，子类可重写

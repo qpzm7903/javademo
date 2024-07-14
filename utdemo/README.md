@@ -20,3 +20,7 @@ org.springframework.context.event.GenericApplicationListenerAdapter.supportsEven
 - [x] 抽象的事件分发
 - [x] 支持listener的同步、异步 
 - [ ] 支持多层实体继承关系分发
+
+TODO
+
+- [ ] 跑UT时一直提示  Java HotSpot(TM) 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
