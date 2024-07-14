@@ -13,3 +13,10 @@ org.springframework.context.event.GenericApplicationListenerAdapter.supportsEven
 其实在发送事件的事后，对象是声明类类型的，例如Event<AA>
 
 但是在收到的时候还丢了
+
+
+计划
+
+- [x] 抽象的事件分发
+- [x] 支持listener的同步、异步 
+- [ ] 支持多层实体继承关系分发
