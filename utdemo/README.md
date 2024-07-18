@@ -19,7 +19,7 @@ org.springframework.context.event.GenericApplicationListenerAdapter.supportsEven
 
 - [x] 抽象的事件分发
 - [x] 支持listener的同步、异步 
-- [x] 支持多层实体继承关系分发
+- [x] 支持多层实体继承关系分发1
 
 TODO
 
