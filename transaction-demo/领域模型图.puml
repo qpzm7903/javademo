@@ -1,0 +1,102 @@
+@startuml
+
+package "商城系统领域模型" {
+
+  class Product {
+    + id: Long
+    + name: String
+    + description: String
+    + price: BigDecimal
+    + quantityInStock: int
+  }
+
+  class Category {
+    + id: Long
+    + name: String
+    + description: String
+  }
+
+  class ShoppingCart {
+    + id: Long
+    + items: List<OrderItem>
+  }
+
+  class Order {
+    + id: Long
+    + orderNumber: String
+    + orderDate: Date
+    + status: OrderStatus
+    + items: List<OrderItem>
+    + shippingAddress: Address
+    + totalPrice: BigDecimal
+  }
+
+  class OrderItem {
+    + id: Long
+    + product: Product
+    + quantity: int
+    + unitPrice: BigDecimal
+    + totalPrice: BigDecimal
+  }
+
+  class Payment {
+    + id: Long
+    + paymentDate: Date
+    + amount: BigDecimal
+    + paymentStatus: PaymentStatus
+  }
+
+  class Member {
+    + id: Long
+    + user: User
+    + level: MemberLevel
+    + points: int
+  }
+
+  class User {
+    + id: Long
+    + username: String
+    + password: String
+    + email: String
+    + firstName: String
+    + lastName: String
+  }
+
+  enum OrderStatus {
+    CREATED
+    CONFIRMED
+    SHIPPED
+    DELIVERED
+    CANCELED
+  }
+
+  enum PaymentStatus {
+    PENDING
+    COMPLETED
+    FAILED
+    CANCELED
+  }
+
+  enum MemberLevel {
+    BASIC
+    PREMIUM
+    VIP
+  }
+
+  class Address {
+    + street: String
+    + city: String
+    + state: String
+    + zipCode: String
+    + country: String
+  }
+
+  Product -- Category : belongs to
+  ShoppingCart "1" -- "0..*" OrderItem : contains
+  Order "1" -- "0..*" OrderItem : includes
+  Order -- Payment : has
+  Member "1" -- "1" User : has
+
+}
+
+@enduml

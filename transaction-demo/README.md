@@ -29,4 +29,27 @@ flyway的版本是 10.10.0
 <dependency>
     <groupId>org.flywaydb</groupId>
     <artifactId>flyway-mysql</artifactId>
-</dependency```
+</dependency>
+```
+
+# 事务管理
+默认的情况下，什么都没改，数据源类型是HikariDataSource,事务管理器类型是JdbcTransactionManager
+
+那么他的事务切面配置呢？
+
+在springboot ut里进行测试。
+
+在添加事务注解、增加事务处理器后，正常调用没有异常，不会进入rollback
+
+发现了，在启动类上增加Transational注解就会自动进行回滚
+
+```java
+@SpringBootTest
+@MapperScan("com.example.transaction_demo.domain.repository")
+@EnableTransactionManagement
+@Transactional
+public class TransactionDemoApplicationTests {
+}
+```
+
+这样的话，在日志里就只能看到开启事务，回滚事务了。 否则就是会看到开启、提交事务。
