@@ -10,8 +10,16 @@
         <result property="quantityInStock" column="quantity_in_stock"/>
     </resultMap>
     <insert id="createProduct">
-        insert into mall_product (id, description, price, quantity_in_stock) values (#{product.id}, #{product.description},#{product.price},#{product.quantityInStock})
+        insert into mall_product (id, name, description, price, quantity_in_stock) values (#{product.id},#{product.name}, #{product.description},#{product.price},#{product.quantityInStock})
     </insert>
+    <update id="updateProductById">
+        UPDATE mall_product
+            SET description = #{product.description},
+             name = #{product.name},
+             price = #{product.price},
+             quantity_in_stock = #{product.quantityInStock}
+            WHERE id = #{product.id}
+    </update>
     <select id="listAllProduct" resultType="com.example.transaction_demo.domain.model.Product">
         select * from mall_product;
     </select>

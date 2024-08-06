@@ -3,13 +3,14 @@ package com.example.transaction_demo.domain.service.support;
 import com.example.transaction_demo.TransactionDemoApplicationTests;
 import com.example.transaction_demo.domain.model.Product;
 import com.example.transaction_demo.domain.service.ProductService;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.annotation.Rollback;
 import org.springframework.util.CollectionUtils;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Objects;
 
 class ProductServiceImplTest extends TransactionDemoApplicationTests {
     
@@ -36,6 +37,44 @@ class ProductServiceImplTest extends TransactionDemoApplicationTests {
         List<Product> products = productService.listAllProduct();
         assert !CollectionUtils.isEmpty(products);
         
+    }
+    @Test
+    void test_create_and_delete() {
+        Product product = new Product();
+        product.setId("test");
+        product.setName("test product");
+        product.setDescription("this is ia test product");
+        product.setPrice(BigDecimal.TEN);
+        
+        assert productService.createProduct(product);
+        List<Product> products = productService.listAllProduct();
+        assert !CollectionUtils.isEmpty(products);
+        
+        assert productService.deleteProduct(product.getId());
+        
+        products = productService.listAllProduct();
+        assert CollectionUtils.isEmpty(products);
+    }
+    
+    @Test
+    void test_create_and_update() {
+        Product product = new Product();
+        product.setId("test");
+        product.setName("test product");
+        product.setDescription("this is ia test product");
+        product.setPrice(BigDecimal.TEN);
+        
+        assert productService.createProduct(product);
+        List<Product> products = productService.listAllProduct();
+        assert !CollectionUtils.isEmpty(products);
+        product.setPrice(BigDecimal.ZERO);
+        product.setName("update product name");
+        product.setDescription("update product desc");
+        
+        Product updatedProduct = productService.updateProductById(product);
+        
+        assert Objects.equals(updatedProduct, product);
+
     }
 
 }

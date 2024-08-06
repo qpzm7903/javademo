@@ -11,4 +11,10 @@ public interface ProductService {
     
     @Transactional
     boolean createProduct(@Param("product") Product product);
+    
+    @Transactional
+    boolean deleteProduct(@Param("productId")  String productId);
+    
+    @Transactional
+    Product updateProductById(Product product);
 }

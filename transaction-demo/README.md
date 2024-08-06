@@ -1,4 +1,7 @@
 
+0、
+- [x] 商品的增删改查
+- 
 
 1、数据库
 mysql 8.x
@@ -41,7 +44,7 @@ flyway的版本是 10.10.0
 
 在添加事务注解、增加事务处理器后，正常调用没有异常，不会进入rollback
 
-发现了，在启动类上增加Transational注解就会自动进行回滚
+发现了，在启动类上增加Transactional注解就会自动进行回滚
 
 ```java
 @SpringBootTest

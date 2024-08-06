@@ -13,6 +13,7 @@ import java.util.List;
 public class ProductServiceImpl implements ProductService {
     @Autowired
     private ProductRepo productRepo;
+    
     @Override
     @Transactional(readOnly = true)
     public List<Product> listAllProduct() {
@@ -23,5 +24,19 @@ public class ProductServiceImpl implements ProductService {
     @Transactional
     public boolean createProduct(Product product) {
         return productRepo.createProduct(product);
+    }
+    
+    @Override
+    public boolean deleteProduct(String productId) {
+        return productRepo.deleteById(productId);
+    }
+    
+    @Override
+    public Product updateProductById(Product product) {
+        int count = productRepo.updateProductById(product);
+        if (count == 1) {
+            return product;
+        }
+        throw new RuntimeException("update product failed");
     }
 }
