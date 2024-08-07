@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Mapper
 public interface ProductRepo {
@@ -19,4 +20,6 @@ public interface ProductRepo {
     boolean deleteById(@Param("productId") String productId);
     
     int updateProductById(@Param("product") Product product);
+    
+    Optional<Product> getById(@Param("productId")String productId);
 }

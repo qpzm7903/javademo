@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -38,5 +39,10 @@ public class ProductServiceImpl implements ProductService {
             return product;
         }
         throw new RuntimeException("update product failed");
+    }
+    
+    @Override
+    public Optional<Product> getByProductId(String productId) {
+        return productRepo.getById(productId);
     }
 }

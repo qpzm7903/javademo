@@ -23,4 +23,7 @@
     <select id="listAllProduct" resultType="com.example.transaction_demo.domain.model.Product">
         select * from mall_product;
     </select>
+    <select id="getById" resultMap="product">
+        SELECT * FROM mall_product where id = #{productId}
+    </select>
 </mapper>

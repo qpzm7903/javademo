@@ -11,6 +11,7 @@ import org.springframework.util.CollectionUtils;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 class ProductServiceImplTest extends TransactionDemoApplicationTests {
     
@@ -75,6 +76,25 @@ class ProductServiceImplTest extends TransactionDemoApplicationTests {
         
         assert Objects.equals(updatedProduct, product);
 
+    }
+    
+    @Test
+    void test_create_and_find() {
+        Product product = new Product();
+        product.setId("test");
+        product.setName("test product");
+        product.setDescription("this is ia test product");
+        product.setPrice(BigDecimal.TEN);
+        
+        assert productService.createProduct(product);
+        List<Product> products = productService.listAllProduct();
+        assert !CollectionUtils.isEmpty(products);
+        
+        Optional<Product> byProductId = productService.getByProductId(product.getId());
+        assert byProductId.isPresent();
+        
+        assert byProductId.get()
+                .equals(product);
     }
 
 }
