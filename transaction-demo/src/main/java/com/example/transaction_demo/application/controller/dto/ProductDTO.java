@@ -1,4 +1,4 @@
-package com.example.transaction_demo.domain.model;
+package com.example.transaction_demo.application.controller.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -8,10 +8,10 @@ import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 
 @Data
-@Builder
-@AllArgsConstructor
 @NoArgsConstructor
-public class Product {
+@AllArgsConstructor
+@Builder
+public class ProductDTO {
     private String id;
     private String name;
     private String description;

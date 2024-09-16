@@ -6,6 +6,9 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * 商品服务，可以对商品进行增删改查
+ */
 public interface ProductService {
     List<Product> listAllProduct();
     
