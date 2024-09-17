@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@RestController("/products")
+@RestController
+@RequestMapping("/products")
 public class ProductController {
     private final ProductService productService;
     private final ProductConverter productConverter;
@@ -37,19 +38,17 @@ public class ProductController {
     
     @DeleteMapping("/{id}")
     @Transactional
-    boolean deleteProduct(@RequestParam("id") String id) {
+    boolean deleteProduct(@PathVariable("id") String id) {
         return productService.deleteProduct(id);
     }
     
     @PutMapping
-    @Transactional
     ProductVO updateProductById(@RequestBody ProductDTO product) {
         return productConverter.convertToVO(productService.updateProductById(productConverter.convertToDO(product)));
     }
     
     @GetMapping("/{id}")
-    @Transactional(readOnly = true)
-    Optional<ProductVO> getById(@RequestParam("id") String id) {
+    Optional<ProductVO> getById(@PathVariable("id") String id) {
         Optional<Product> byProductId = productService.getByProductId(id);
         return byProductId.map(productConverter::convertToVO);
     }

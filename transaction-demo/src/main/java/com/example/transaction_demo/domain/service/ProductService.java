@@ -18,9 +18,7 @@ public interface ProductService {
     @Transactional
     boolean deleteProduct(String productId);
     
-    @Transactional
     Product updateProductById(Product product);
     
-    @Transactional(readOnly = true)
     Optional<Product> getByProductId(String productId);
 }
