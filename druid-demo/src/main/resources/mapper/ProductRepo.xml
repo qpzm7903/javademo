@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.transaction_demo.domain.repository.ProductRepo">
+
+    <resultMap id="product" type="com.example.transaction_demo.domain.model.Product">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="description" column="description"/>
+        <result property="price" column="price"/>
+        <result property="quantityInStock" column="quantity_in_stock"/>
+    </resultMap>
+    <insert id="createProduct">
+        insert into mall_product (id, name, description, price, quantity_in_stock) values (#{product.id},#{product.name}, #{product.description},#{product.price},#{product.quantityInStock})
+    </insert>
+    <update id="updateProductById">
+        UPDATE mall_product
+            SET description = #{product.description},
+             name = #{product.name},
+             price = #{product.price},
+             quantity_in_stock = #{product.quantityInStock}
+            WHERE id = #{product.id}
+    </update>
+    <select id="listAllProduct" resultType="com.example.transaction_demo.domain.model.Product">
+        select * from mall_product WHERE (SELECT SLEEP(11)) = 0
+    </select>
+    <select id="getById" resultMap="product">
+        SELECT * FROM mall_product where id = #{productId}
+    </select>
+</mapper>
