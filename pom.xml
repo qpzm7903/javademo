@@ -5,7 +5,32 @@
     <artifactId>javademo</artifactId>
     <version>1</version>
     <packaging>pom</packaging>
-
+    <properties>
+        <java.version>17</java.version>
+    </properties>
     <modules>
+        <module>annotation</module>
+        <module>classLoaderDemo</module>
+        <module>cors_demo/cors_demo</module>
+        <module>designPattern</module>
+        <module>druid-demo</module>
+        <module>flyway-h2-demo</module>
+        <module>h2demo</module>
+        <module>iocdemo</module>
+        <module>javabasicdemo</module>
+        <module>junit5demo</module>
+        <module>log4jdemo</module>
+        <module>mockitodemo</module>
+        <module>mybatis-h2-demo</module>
+        <module>ognl_demo</module>
+        <module>slf4jdemo</module>
+        <module>spring-mybatis-demo</module>
+        <module>spring-reactive-demo</module>
+        <module>spring-security-oauth-demo</module>
+        <module>spring_test_demo</module>
+        <module>spring_ut_test</module>
+        <module>spring_security_user_jdbc</module>
+        <module>transaction-demo</module>
+        <module>mockito_demo</module>
     </modules>
 </project>

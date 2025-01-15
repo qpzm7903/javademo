@@ -1,4 +1,4 @@
-package com.example.h2demo;
+package com.example.spring_security_user_jdbc.authority;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -8,18 +8,20 @@ import lombok.Data;
  * @program: javaDemo
  * @description: TODO description
  * @author: qpzm7903
- * @create: 2021-05-22 11:29
+ * @create: 2021-05-23 07:50
  */
-
+@Table(name = "authorities")
 @Entity
-@Table(name = "users")
 @Data
-public class User {
+public class Authority {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
     
-    String username;
+    @Column(name = "user_id")
+    Long userId;
     
-    String password;
+    String authority;
+    
+    String username;
 }

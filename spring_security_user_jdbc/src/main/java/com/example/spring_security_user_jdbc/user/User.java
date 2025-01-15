@@ -1,4 +1,4 @@
-package com.example.h2demo;
+package com.example.spring_security_user_jdbc.user;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -18,8 +18,11 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
-    
+
+
     String username;
-    
+
     String password;
+
+    Boolean enabled;
 }

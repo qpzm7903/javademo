@@ -28,8 +28,23 @@
         <option value="$PROJECT_DIR$/iodemo/iodemo/pom.xml" />
         <option value="$PROJECT_DIR$/flyway-h2-demo/pom.xml" />
         <option value="$PROJECT_DIR$/demo_for_spring_test/pom.xml" />
+        <option value="$PROJECT_DIR$/OGNL_deom/ognl_demo/pom.xml" />
+        <option value="$PROJECT_DIR$/cros_demo/demo/pom.xml" />
+        <option value="$PROJECT_DIR$/ognl_demo/pom.xml" />
+        <option value="$PROJECT_DIR$/transaction-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/utdemo/pom.xml" />
+        <option value="$PROJECT_DIR$/mockito_demo/pom.xml" />
+        <option value="$PROJECT_DIR$/druid-demo/pom.xml" />
       </list>
     </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/TestModel/pom.xml" />
+        <option value="$PROJECT_DIR$/empty_demo/pom.xml" />
+        <option value="$PROJECT_DIR$/test/pom.xml" />
+        <option value="$PROJECT_DIR$/validationdemo/pom.xml" />
+      </set>
+    </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="17" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" project-jdk-name="17" project-jdk-type="JavaSDK" />
 </project>

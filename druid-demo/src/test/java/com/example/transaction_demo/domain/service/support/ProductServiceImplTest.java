@@ -93,8 +93,7 @@ class ProductServiceImplTest extends TransactionDemoApplicationTests {
         Optional<Product> byProductId = productService.getByProductId(product.getId());
         assert byProductId.isPresent();
         
-        assert byProductId.get()
-                .equals(product);
+        assert byProductId.get().equals(product);
     }
 
 }

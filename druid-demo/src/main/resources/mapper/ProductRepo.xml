@@ -14,14 +14,14 @@
     </insert>
     <update id="updateProductById">
         UPDATE mall_product
-            SET description = #{product.description},
-             name = #{product.name},
-             price = #{product.price},
-             quantity_in_stock = #{product.quantityInStock}
-            WHERE id = #{product.id}
+        SET description       = #{product.description},
+            name              = #{product.name},
+            price             = #{product.price},
+            quantity_in_stock = #{product.quantityInStock}
+        WHERE id = #{product.id}
     </update>
     <select id="listAllProduct" resultType="com.example.transaction_demo.domain.model.Product">
-        select * from mall_product WHERE (SELECT SLEEP(11)) = 0
+        select * from mall_product
     </select>
     <select id="getById" resultMap="product">
         SELECT * FROM mall_product where id = #{productId}
