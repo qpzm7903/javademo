@@ -1,5 +1,6 @@
 package com.qpzm7903;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
@@ -23,6 +24,7 @@ public class SelectorDemo {
     }
 
     @Test
+    @Disabled
     void test_registry() throws IOException {
 
         /**

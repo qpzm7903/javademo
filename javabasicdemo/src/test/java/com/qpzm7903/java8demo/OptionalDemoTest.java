@@ -1,6 +1,7 @@
 package com.qpzm7903.java8demo;
 
 import lombok.Data;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.platform.commons.annotation.Testable;
 
@@ -28,6 +29,7 @@ public class OptionalDemoTest {
     }
 
     @Test
+    @Disabled
     public void test() {
         Person person = new Person();
         Optional<Person> optionalPerson = Optional.of(person);

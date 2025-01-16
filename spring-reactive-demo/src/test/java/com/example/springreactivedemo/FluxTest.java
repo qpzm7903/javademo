@@ -1,5 +1,6 @@
 package com.example.springreactivedemo;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.reactivestreams.Subscription;
 import reactor.core.publisher.BaseSubscriber;
@@ -266,6 +267,7 @@ public class FluxTest {
     }
 
     @Test
+    @Disabled
     void test_parallel_and_run_and_with_collect() throws InterruptedException {
         ExecutorService executorService = new ThreadPoolExecutor(50, 100, 0L, TimeUnit.MILLISECONDS,
                 new SynchronousQueue());

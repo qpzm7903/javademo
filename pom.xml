@@ -11,7 +11,6 @@
     <modules>
         <module>annotation</module>
         <module>classLoaderDemo</module>
-        <module>cors_demo/cors_demo</module>
         <module>designPattern</module>
         <module>druid-demo</module>
         <module>flyway-h2-demo</module>

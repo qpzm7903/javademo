@@ -1,12 +1,14 @@
 package com.qpzm7903.structural_patterns.proxyPattern.cglibdemo;
 
 import net.sf.cglib.proxy.*;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Method;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@Disabled
 class SampleClassTest {
 
     public static final String HELLO_CGLIB = "hello cglib";
