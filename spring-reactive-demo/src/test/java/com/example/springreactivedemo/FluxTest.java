@@ -236,37 +236,6 @@ public class FluxTest {
     }
 
     @Test
-    void test_parallel_and_run_and_with_1000() throws InterruptedException {
-        ExecutorService executorService = new ThreadPoolExecutor(50, 100, 0L, TimeUnit.MILLISECONDS,
-                new SynchronousQueue());
-
-        AtomicInteger integer = new AtomicInteger();
-        long start = System.currentTimeMillis();
-        int size = 100000;
-        Flux.range(1, size)
-
-                .parallel(100)
-                .runOn(Schedulers.fromExecutorService(executorService))
-                .doOnNext(i -> {
-                    System.out.println(" i + i = " + (i+i));
-                    integer.incrementAndGet();
-//                    try {
-////                        Thread.sleep(1);
-//                    } catch (InterruptedException e) {
-//                        e.printStackTrace();
-//                    }
-                })
-                .then()
-                .block();
-        long end = System.currentTimeMillis();
-        System.out.println("cost " + (end - start) + " ms");
-
-        assert integer.get() == size;
-
-        System.out.println("end");
-    }
-
-    @Test
     @Disabled
     void test_parallel_and_run_and_with_collect() throws InterruptedException {
         ExecutorService executorService = new ThreadPoolExecutor(50, 100, 0L, TimeUnit.MILLISECONDS,

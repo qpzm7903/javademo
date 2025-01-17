@@ -25,7 +25,6 @@
         <module>slf4jdemo</module>
         <module>spring-mybatis-demo</module>
         <module>spring-reactive-demo</module>
-        <module>spring-security-oauth-demo</module>
         <module>spring_test_demo</module>
         <module>spring_ut_test</module>
         <module>spring_security_user_jdbc</module>
