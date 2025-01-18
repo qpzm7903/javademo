@@ -35,6 +35,7 @@
         <option value="$PROJECT_DIR$/utdemo/pom.xml" />
         <option value="$PROJECT_DIR$/mockito_demo/pom.xml" />
         <option value="$PROJECT_DIR$/druid-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/3rdDependencies/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

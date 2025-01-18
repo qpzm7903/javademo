@@ -1,6 +1,13 @@
 <project>
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.4.1</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
     <groupId>com.qpzm7903</groupId>
     <artifactId>javademo</artifactId>
     <version>1</version>
@@ -9,6 +16,7 @@
         <java.version>17</java.version>
     </properties>
     <modules>
+        <module>3rdDependencies</module>
         <module>annotation</module>
         <module>classLoaderDemo</module>
         <module>designPattern</module>
@@ -30,5 +38,43 @@
         <module>spring_security_user_jdbc</module>
         <module>transaction-demo</module>
         <module>mockito_demo</module>
+
     </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.qpzm7903</groupId>
+                <artifactId>3rdDependencies</artifactId>
+                <version>1.0-SNAPSHOT</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+<!--    TODO 插件似乎只能在父pom里指定-->
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.8.0</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>3.0.0-M7</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
