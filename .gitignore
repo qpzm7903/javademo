@@ -36,3 +36,4 @@ build/
 **/.idea/
 /.idea/
 /spring-reactive-demo/.mvn/
+/.idea/
