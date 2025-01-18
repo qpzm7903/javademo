@@ -13,7 +13,7 @@ import com.qpzm7903.mockito.emb.UserService;
 public class PayServiceImpl implements PayService {
 
     private UserService userService;
-
+    
     @Override
     public int pay(String userId, int count) {
         User user = userService.getUserById(userId);
