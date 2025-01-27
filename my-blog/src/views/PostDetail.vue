@@ -80,6 +80,7 @@
 import { ref, computed } from 'vue';
 import { usePostStore } from '../stores/postStore';
 import { marked } from 'marked';
+import { markedHighlight } from 'marked-highlight';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/github.css';
 
@@ -90,24 +91,28 @@ const props = defineProps<{
 const postStore = usePostStore();
 const isEditing = ref(false);
 const editingPost = ref({ title: '', content: '' });
+// 使用 marked-highlight 插件
+marked.use(
+  markedHighlight({
+    highlight: (code: string, lang: string) => {
+      if (lang && hljs.getLanguage(lang)) {
+        return hljs.highlight(lang, code).value;
+      }
+      return hljs.highlightAuto(code).value;
+    },
+  })
+);
 
 const post = computed(() => {
   const rawPost = postStore.getPostById(props.id);
   if (!rawPost) return null;
 
   return {
-    ...rawPost,
-    content: isEditing.value 
-      ? rawPost.content 
-      : marked(rawPost.content || '', {
-          highlight: function (code: string, lang: string) {
-            if (lang && hljs.getLanguage(lang)) {
-              return hljs.highlight(lang, code).value;
-            }
-            return hljs.highlightAuto(code).value;
-          },
-        })
-  };
+        ...rawPost,
+        content: isEditing.value
+          ? rawPost.content
+          : marked(rawPost.content || ''),
+      };
 });
 
 const toggleEdit = () => {
