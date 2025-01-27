@@ -1,0 +1,10 @@
+# 忽略 macOS 的一些系统文件
+.DS_Store
+._*
+
+# 忽略本地 node_modules（如果你在 Docker 容器内安装依赖，而不在本地复制）
+node_modules
+
+# 忽略日志/临时文件
+*.log
+tmp/
