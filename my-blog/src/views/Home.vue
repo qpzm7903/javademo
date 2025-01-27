@@ -94,7 +94,7 @@ export default defineComponent({
       return content.slice(0, 50) + (content.length > 50 ? '...' : '')
     }
 
-    const sort = (field) => {
+    const sort = (field: 'id' | 'title') => {
       if (sortField.value === field) {
         // 如果点击的是当前排序字段，则切换排序顺序
         sortOrder.value = sortOrder.value === 'asc' ? 'desc' : 'asc'
@@ -105,7 +105,7 @@ export default defineComponent({
       }
     }
 
-    const getSortIconClass = (field) => {
+    const getSortIconClass = (field: 'id' | 'title') => {
       if (sortField.value !== field) return 'bi-arrow-down-up'
       return sortOrder.value === 'asc' ? 'bi-arrow-up' : 'bi-arrow-down'
     }
@@ -113,8 +113,8 @@ export default defineComponent({
     const sortedPosts = computed(() => {
       const posts = [...postStore.posts]
       return posts.sort((a, b) => {
-        const aValue = a[sortField.value]
-        const bValue = b[sortField.value]
+        const aValue = a[sortField.value as keyof typeof a] ?? ''
+        const bValue = b[sortField.value as keyof typeof b] ?? ''
         
         if (sortOrder.value === 'asc') {
           return aValue > bValue ? 1 : -1
