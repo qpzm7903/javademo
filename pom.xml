@@ -30,7 +30,7 @@
         <module>mockitodemo</module>
         <module>mybatis-h2-demo</module>
         <module>ognl_demo</module>
-        <module>slf4jdemo</module>
+        <module>slf4j-demo/slf4jdemo</module>
         <module>spring-mybatis-demo</module>
         <module>spring-reactive-demo</module>
         <module>spring_test_demo</module>
@@ -38,6 +38,8 @@
         <module>spring_security_user_jdbc</module>
         <module>transaction-demo</module>
         <module>mockito_demo</module>
+        <module>maven-plugin-demo</module>
+        <module>slf4j-demo</module>
 
     </modules>
 
