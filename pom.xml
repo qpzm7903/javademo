@@ -40,6 +40,7 @@
         <module>mockito_demo</module>
         <module>maven-plugin-demo</module>
         <module>slf4j-demo</module>
+        <module>resilience4j-demo/my-http-client</module>
 
     </modules>
 
