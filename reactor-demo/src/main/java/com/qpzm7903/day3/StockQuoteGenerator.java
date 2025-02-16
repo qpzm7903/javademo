@@ -20,8 +20,8 @@ public class StockQuoteGenerator {
      * 每10ms生成一个新的报价，模拟高频交易场景
      */
     public Flux<StockQuote> generateQuotes() {
-        return Flux.interval(Duration.ofMillis(10))
-                .publishOn(Schedulers.newSingle("generator"))  // 使用单独的固定线程
+        return Flux.interval(Duration.ofMillis(1), Schedulers.newSingle("generator-timer"))
+                .publishOn(Schedulers.newSingle("generator"))
                 .map(i -> {
                     generatedCount.incrementAndGet();  // 增加计数
                     return generateRandomQuote();
