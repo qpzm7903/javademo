@@ -79,7 +79,7 @@ public class StockQuoteProcessor {
                     droppedCount.incrementAndGet();
                     logger.warn("Dropped quote: {}", dropped);
                 })
-                .publishOn(Schedulers.newSingle("drop-processor"), 10)
+                .publishOn(Schedulers.newSingle("drop-processor"), 1)
                 .doOnNext(quote -> {
                     simulateSlowProcessing();
                     processedCount.incrementAndGet();

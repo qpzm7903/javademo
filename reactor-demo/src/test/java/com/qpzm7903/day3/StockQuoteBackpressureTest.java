@@ -63,6 +63,37 @@ public class StockQuoteBackpressureTest {
                 String.format("处理和丢弃的总数应该等于输入数据量100，实际是%d", total));
     }
     
+    /**
+     * 测试Drop背压策略
+     * 
+     * 数据流分析：
+     * 1. 数据生成：
+     *    - 速率：每1ms生成一个数据
+     *    - 总量：200个数据
+     *    - 总生成时间：200ms
+     * 
+     * 2. 数据处理：
+     *    - 速率：每个数据处理需要100ms
+     *    - 理论处理量：2秒可处理20个数据
+     * 
+     * 3. Drop策略工作过程：
+     *    时间轴    上游生成    处理情况    丢弃情况
+     *    0ms      1-10       开始处理1    -
+     *    1ms      11         -           丢弃11
+     *    2ms      12         -           丢弃12
+     *    ...      ...        -           ...
+     *    100ms    101-200    处理完1      丢弃101-200
+     *    101ms    -          开始处理2    -
+     *    200ms    结束        -           -
+     * 
+     * 4. 实际结果分析：
+     *    - 处理数量少于预期（2而不是20）的原因：
+     *      * publishOn的prefetch=10会预取10个元素
+     *      * 在第一个元素处理完成前（100ms），上游已生成了100个数据
+     *      * Drop策略会立即丢弃所有无法被prefetch缓冲的数据
+     * 
+     * @throws InterruptedException 如果等待过程被中断
+     */
     @Test
     void testDropStrategy() throws InterruptedException {
         processor.resetCounters();
@@ -88,7 +119,8 @@ public class StockQuoteBackpressureTest {
                 "Drop策略下丢弃的数据应该多于处理的数据");
         assertTrue(processor.getProcessedCount() >= 9 && processor.getProcessedCount() <= 11,
                 "处理数量应该在9-11之间（考虑10秒处理时间）");
-        assertTrue(totalHandled == generator.getGeneratedCount(), "处理和丢弃的总数应该等于生成的数量");
+        assertTrue(totalHandled == generator.getGeneratedCount(), 
+                "处理和丢弃的总数应该等于生成的数量");
     }
     
     @Test
