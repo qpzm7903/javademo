@@ -1,0 +1,39 @@
+@startuml
+skinparam sequenceMessageAlign center
+
+participant "Client" as client
+participant "Flux<User>" as flux
+participant "Filter" as filter
+participant "Map" as map
+participant "doOnNext" as doOnNext
+participant "onErrorContinue" as error
+participant "Subscriber" as sub
+
+client -> flux: subscribe
+activate flux
+
+flux -> filter: user
+activate filter
+filter -> map: user (age >= 18)
+deactivate filter
+
+activate map
+map -> doOnNext: UserDTO
+deactivate map
+
+activate doOnNext
+note right of doOnNext: print "Reactive Processing"
+doOnNext -> error: UserDTO
+deactivate doOnNext
+
+activate error
+note right of error: handle errors if any
+error -> sub: UserDTO
+deactivate error
+
+activate sub
+note right of sub: process final result
+sub --> client: complete
+deactivate sub
+
+@enduml 

@@ -1,0 +1,35 @@
+@startuml
+title Flux.fromIterable() Interaction Sequence
+
+participant "Subscriber" as sub
+participant "FluxCreationDemo" as demo
+participant "Flux.fromIterable()" as flux
+participant "List<Integer>" as list
+
+sub -> demo : subscribe to createFluxFromIterable()
+activate demo
+
+demo -> list : create List(1,2,3,4,5)
+activate list
+list --> demo : return list
+deactivate list
+
+demo -> flux : fromIterable(list)
+activate flux
+
+flux -> sub : onSubscribe(Subscription)
+activate sub
+
+sub -> flux : request(unbounded)
+flux -> sub : onNext(1)
+flux -> sub : onNext(2)
+flux -> sub : onNext(3)
+flux -> sub : onNext(4)
+flux -> sub : onNext(5)
+flux -> sub : onComplete()
+
+deactivate flux
+deactivate demo
+deactivate sub
+
+@enduml 

@@ -1,0 +1,32 @@
+@startuml
+title Flux.generate() Interaction Sequence
+
+participant "Subscriber" as sub
+participant "FluxCreationDemo" as demo
+participant "Flux.generate()" as flux
+participant "SynchronousSink" as sink
+
+sub -> demo : subscribe to createFluxFromGenerate()
+activate demo
+demo -> flux : generate()
+activate flux
+
+flux -> sub : onSubscribe(Subscription)
+activate sub
+
+sub -> flux : request(unbounded)
+
+loop state from 0 to 9
+    flux -> sink : invoke generator function
+    activate sink
+    sink -> sub : onNext(state)
+    deactivate sink
+end
+
+flux -> sub : onComplete()
+
+deactivate flux
+deactivate demo
+deactivate sub
+
+@enduml 

@@ -1,0 +1,26 @@
+@startuml
+title Flux.just() Interaction Sequence
+
+participant "Subscriber" as sub
+participant "FluxCreationDemo" as demo
+participant "Flux.just()" as flux
+
+sub -> demo : subscribe to createFluxFromJust()
+activate demo
+demo -> flux : create Flux
+activate flux
+
+flux -> sub : onSubscribe(Subscription)
+activate sub
+
+sub -> flux : request(unbounded)
+flux -> sub : onNext("Hello")
+flux -> sub : onNext("Reactor")
+flux -> sub : onNext("World")
+flux -> sub : onComplete()
+
+deactivate flux
+deactivate demo
+deactivate sub
+
+@enduml 

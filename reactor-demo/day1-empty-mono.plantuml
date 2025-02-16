@@ -1,0 +1,23 @@
+@startuml
+title Mono.empty() Interaction Sequence
+
+participant "Subscriber" as sub
+participant "FluxCreationDemo" as demo
+participant "Mono.empty()" as mono
+
+sub -> demo : subscribe to createEmptyMono()
+activate demo
+demo -> mono : empty()
+activate mono
+
+mono -> sub : onSubscribe(Subscription)
+activate sub
+
+sub -> mono : request(unbounded)
+mono -> sub : onComplete()
+
+deactivate mono
+deactivate demo
+deactivate sub
+
+@enduml 
