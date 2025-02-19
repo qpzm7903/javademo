@@ -1,0 +1,32 @@
+@startuml
+title Drop Backpressure Strategy Flow
+
+participant "Generator\nThread" as gen
+participant "onBackpressureDrop" as drop
+participant "publishOn\n(boundedElastic)" as pub
+participant "Consumer\nThread" as cons
+
+note over gen: Produces 100 items/sec\n(every 10ms)
+note over cons: Processes 1 item/sec\n(1000ms per item)
+
+gen -> drop: emit quote
+activate drop
+
+alt Downstream ready
+    drop -> pub: pass quote
+    pub -> cons: process quote
+    note right: simulateSlowProcessing()\nprocessedCount++
+else Downstream busy
+    drop -> drop: drop quote
+    note right: droppedCount++
+end
+
+deactivate drop
+
+... 10ms later ...
+
+gen -> drop: emit next quote
+activate drop
+note right: Process repeats
+
+@enduml 

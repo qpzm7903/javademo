@@ -237,3 +237,45 @@ Day14：交付高并发压测结果（wrk/JMeter）
 4. 周末进行知识映射测试（Anki卡片回忆率检测）
 
 该体系通过**代码产出->指标验证->架构演进**的三级递进，确保每个知识点都经历"理解-实现-优化"的完整闭环。建议在IntelliJ中开启Reactor代码洞察插件，实时获得操作符提示和流式链路可视化支持。
+
+
+# 阶段一：响应式基石（20个）
+Reactive Streams规范四要素（Publisher/Subscriber/Subscription/Processor）
+
+背压(Backpressure)的流量控制原理
+
+Flux与Mono的本质区别（0-N vs 0-1元素流）
+
+冷热数据源(Cold vs Hot Publisher)
+
+订阅触发机制(Subscription Triggers)
+
+操作符链(Operator Chaining)的惰性特性
+
+数据流生命周期（Assembly vs Subscription）
+
+同步与异步执行边界(Synchronous vs Asynchronous)
+
+空流处理策略（Mono.empty()应用场景）
+
+错误信号传播机制（onError*操作符）
+
+完成信号语义（onComplete触发条件）
+
+基元类型特化流（IntFlux/LongFlux等）
+
+Schedulers线程模型基础
+
+上下文(Context)的线程关联性
+
+调试工具链（checkpoint()/Hooks）
+
+测试工具（StepVerifier原理）
+
+虚拟时间(StepVerifier.withVirtualTime)
+
+阻塞检测(BlockHound原理)
+
+响应式兼容性级别（Reactive Libraries兼容）
+
+响应式宣言(Responsive/Resilient/Elastic/Message-Driven)
